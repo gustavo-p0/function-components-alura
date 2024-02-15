@@ -2,13 +2,18 @@
 import { Container, Typography } from "@mui/material";
 import { Form } from "./Components/Form";
 import "fontsource-roboto";
+
+const handleFormSubmit = (data) => {
+  console.log(data);
+};
+
 const App = () => {
   return (
     <Container component="article" maxWidth="sm">
       <Typography variant="h3" component={"h1"} align="center">
         Formulário de cadastro
       </Typography>
-      <Form />
+      <Form onSubmit={handleFormSubmit} />
     </Container>
   );
 };
