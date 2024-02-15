@@ -8,6 +8,18 @@ const Form = ({ onSubmit }) => {
   const [cpf, setCpf] = useState("");
   const [wantPromotions, setWantPromotions] = useState(true);
   const [wantNewsletter, setWantNewsletter] = useState(true);
+
+  const [errors, setErrors] = useState({
+    cpf: { valid: true, helperText: "" },
+  });
+
+  const validateCPF = (cpf) => {
+    if (cpf.length !== 11) {
+      return { valid: false, helperText: "CPF deve ter 11 dígitos" };
+    }
+
+    return { valid: true, helperText: "" };
+  };
   return (
     <form
       onSubmit={(e) => {
@@ -43,8 +55,15 @@ const Form = ({ onSubmit }) => {
         id="cpf"
         variant="outlined"
         fullWidth
+        error={!errors.cpf.valid}
+        helperText={errors.cpf.helperText}
         margin="normal"
         value={cpf}
+        onBlur={() => {
+          setErrors({
+            cpf: validateCPF(cpf),
+          });
+        }}
         onChange={(e) => {
           setCpf(e.currentTarget.value);
         }}
