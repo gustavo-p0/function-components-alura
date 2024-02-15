@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styles from "./Form.module.css";
 import { Button, TextField, Switch, FormControlLabel } from "@mui/material";
 const Form = () => {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   return (
     <form action="">
       <TextField
@@ -9,6 +12,10 @@ const Form = () => {
         variant="outlined"
         fullWidth
         margin="normal"
+        value={name}
+        onChange={(e) => {
+          setName(e.currentTarget.value.substring(0, 3));
+        }}
       />
       <TextField
         label="Sobrenome"
@@ -16,6 +23,10 @@ const Form = () => {
         variant="outlined"
         fullWidth
         margin="normal"
+        value={surname}
+        onChange={(e) => {
+          setSurname(e.currentTarget.value);
+        }}
       />
       <TextField
         label="CPF"
