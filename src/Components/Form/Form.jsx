@@ -1,19 +1,38 @@
 import styles from "./Form.module.css";
-import Button from "@mui/material/Button";
+import { Button, TextField, Switch, FormControlLabel } from "@mui/material";
 const Form = () => {
   return (
     <form action="">
-      <label htmlFor="">Nome</label>
-      <input type="text" name="" id="" />
-      <label htmlFor="">Sobrenome</label>
-      <input type="text" name="" id="" />
-      <label htmlFor="">CPF</label>
-      <input type="text" name="" id="" />
-      <label htmlFor="">Promoções</label>
-      <input type="checkbox" name="" id="" />
-      <label htmlFor="">Novidades</label>
-      <input type="checkbox" name="" id="" />
-      <Button type="submit" color="primary" variant="contained">
+      <TextField
+        label="Nome"
+        id="nome"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Sobrenome"
+        id="sobrenome"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="CPF"
+        id="cpf"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+      />
+      <FormControlLabel
+        label="Promoções"
+        control={<Switch name="promocoes" defaultChecked />}
+      />
+      <FormControlLabel
+        label="Novidades"
+        control={<Switch name="novidades" defaultChecked />}
+      />
+      <Button type="submit" color="primary" variant="contained" fullWidth>
         Cadastrar
       </Button>
     </form>
