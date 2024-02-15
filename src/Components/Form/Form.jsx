@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./Form.module.css";
 import { Button, TextField, Switch, FormControlLabel } from "@mui/material";
 const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
